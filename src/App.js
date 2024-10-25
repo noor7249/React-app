@@ -68,9 +68,6 @@ const App = () => {
           marginTop: "20px",
           borderRadius: "5px",
           width: "800px",
-          // alignItems:"center",
-          // display:'flex',
-          // justifyItems:"center"
         }}
       >
         <div style={{
