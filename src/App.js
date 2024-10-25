@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const records = [
   {
@@ -68,9 +68,6 @@ const App = () => {
           marginTop: "20px",
           borderRadius: "5px",
           width: "800px",
-          // alignItems:"center",
-          // display:'flex',
-          // justifyItems:"center"
         }}
       >
         <div style={{
@@ -114,60 +111,67 @@ const App = () => {
         </div>
       </div>
 
-      <Modal
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        backdrop="static"
-        centered
-        style={{ backdropFilter: "blur(5px)" }}
-      >
-        <Modal.Body
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            height: "250px",
-            justifyContent: "center"
-          }}
+
+    </div>
+      <div style={{}}>
+        <Modal
+          show={showModal}
+          onHide={() => setShowModal(false)}
+          backdrop="static"
+          centered
+          style={{ backdropFilter: "blur(5px)", marginTop: "0px" }}
         >
-          {loading ? (
-            <FontAwesomeIcon icon={faSpinner} spin size="5x" />
-          ) : (
-            <div style={{ flexDirection: "row", alignItems: "center" }}>
-              <div style={{ marginBottom: "10px" }}>
-                <FontAwesomeIcon icon={faSpinner} spin size="2x" style={{ color: "gray" }} />
-                <span style={{ marginLeft: "10px" }}>Processing</span>
-              </div>
-              <div style={{ marginBottom: "10px" }}>
-                <FontAwesomeIcon icon={faCheck} size="2x" style={{ color: "green" }} />
-                <span style={{ marginLeft: "10px" }}>Completed</span>
-              </div>
-              <div style={{ marginBottom: "10px" }}>
-                <FontAwesomeIcon icon={faTimes} size="2x" style={{ color: "red" }} />
-                <span style={{ marginLeft: "10px" }}>Failed</span>
-              </div>
-            </div>
-          )}
-        </Modal.Body>
-        <Modal.Footer style={{ alignItems: 'center', justifyContent: 'center' }}>
-          <button
-            onClick={() => {
-              setShowModal(false);
-              setLoading(true);
-              setSearchTerm("");
+          <Modal.Body
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              // alignItems: "center",
+              // textAlign: "center",
+              height: "250px",
+              justifyContent: "center",
+              padding:"180px"
             }}
-            style={{ padding: "8px 15px" }}
           >
-            Close
-          </button>
-        </Modal.Footer>
-      </Modal>
-    </div><script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script></>
+            {loading ? (
+              <FontAwesomeIcon icon={faSpinner} spin size="5x" />
+            ) : (
+              <div style={{ flexDirection: "row", alignItems: "center" }}>
+                <div style={{ marginBottom: "10px",flexDirection: "row" }}>
+                <span style={{width:"50px"}}><FontAwesomeIcon icon={faSpinner} spin size="2x" style={{ color: "gray" }} /></span>
+                  <span style={{ marginLeft: "10px" }}>Processing</span>
+                </div>
+                <div style={{ marginBottom: "10px",flexDirection: "row" }}>
+                  <FontAwesomeIcon icon={faCheck} size="2x" style={{ color: "green" }} />
+                  <span style={{ marginLeft: "10px" }}>Completed</span>
+                </div>
+                <div style={{ marginBottom: "10px",flexDirection: "row" }}>
+                  <FontAwesomeIcon icon={faTimes} size="2x" style={{ color: "red" }} />
+                  <span style={{ marginLeft: "10px" }}>Failed</span>
+                </div>
+              </div>
+            )}
+          </Modal.Body>
+          <Modal.Footer style={{ justifyContent: 'center',alignItems:'flex-start' }}>
+            <button
+              onClick={() => {
+                setShowModal(false);
+                setLoading(true);
+                setSearchTerm("");
+              }}
+              style={{ padding: "8px 15px" }}
+            >
+              Close
+            </button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+
+      {/* <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script> */}
+    </>
   );
 };
 
